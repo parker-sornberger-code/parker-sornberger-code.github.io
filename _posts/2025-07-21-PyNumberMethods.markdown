@@ -6,7 +6,7 @@ categories: C-Extentions
 ---
 
 In Python, it's almost trivial to create an object that overrides the "+" operator using the so-called dunder/magic methods. 
-{% highlight python %}
+{% highlight Python %}
 class MyCoolObject:
     def __add__(self, other):
         ...
@@ -15,7 +15,7 @@ class MyCoolObject:
         ...
 {% endhighlight %}
 However, manually adding each addition magic method like the above can be tedious, and instead some people will implement these methods on the fly using an "operator fallback" type recipe. This method relies on type checking, and will ensure that for each time an operator is chosen, the correct functions will be used to handle it. 
-{% highlight python %}
+{% highlight Python %}
 class MyCoolFancyObject:
     def _generic_FancyObject_addition(a, b):
         ...
@@ -38,7 +38,7 @@ static PyTypeObject MyAwesomeCObject{
 	.tp_doc = PyDoc_STR("The documentation for my awesome extension"),
 	.tp_itemsize = 0, //dangerous
 	.tp_flags = Py_TPFLAGS_DEFAULT,
-	.tp_new = MyFraction_new, //create a new instance of a class like __new__ in python 
+	.tp_new = MyFraction_new, //create a new instance of a class like __new__ in Python 
 	.tp_init = (initproc)MyAwesomeCObject_init, //same as __init__ 
 	.tp_dealloc = (destructor)MyAwesomeCObject_dealloc, //magical function invoked by the garbage collector (SIMILAR BUT DISTINCT FROM __del__ in regular classes)
 	.tp_members = MyAwesomeCObject_members, //the regular attributes of a class, but they can be C-types too
